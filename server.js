@@ -1,61 +1,52 @@
-// server.js
-// where your node app starts
-
-// init project
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
-
-// init sqlite db
-var fs = require('fs');
-var dbFile = './.data/sqlite.db';
-var exists = fs.existsSync(dbFile);
-var sqlite3 = require('sqlite3').verbose();
-var db = new sqlite3.Database(dbFile);
-
-// if ./.data/sqlite.db does not exist, create it, otherwise print records to console
-db.serialize(function(){
-  if (!exists) {
-    db.run('CREATE TABLE Dreams (dream TEXT)');
-    console.log('New table Dreams created!');
-    
-    // insert default dreams
-    db.serialize(function() {
-      db.run('INSERT INTO Dreams (dream) VALUES ("Find and count some sheep"), ("Climb a really tall mountain"), ("Wash the dishes")');
-    });
-  }
-  else {
-    console.log('Database "Dreams" ready to go!');
-    db.each('SELECT * from Dreams', function(err, row) {
-      if ( row ) {
-        console.log('record:', row);
-      }
-    });
-  }
+const express = require("express");
+const app = express();
+const Discord = require("discord.js");
+const db = require("quick.db");
+const client = new Discord.Client({
+  fetchAllMembers: true,
+  partials: ["MESSAGE", "USER", "REACTION"]
 });
 
-// http://expressjs.com/en/starter/basic-routing.html
-app.get('/', function(request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
+let token = "NjkzODM3NjI3OTIwNjEzNDA5.XoC4pQ.1H9nxWFgQXMKNtmxy53inJrlRZU"
 
-// endpoint to get all the dreams in the database
-// currently this is the only endpoint, ie. adding dreams won't update the database
-// read the sqlite3 module docs and try to add your own! https://www.npmjs.com/package/sqlite3
-app.get('/getDreams', function(request, response) {
-  db.all('SELECT * from Dreams', function(err, rows) {
-    response.send(JSON.stringify(rows));
+const port = 1000;
+
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+
+const fs = require("fs");
+fs.readdir("./komutlar/", (err, files) => {
+  if (err) console.log(err);
+  let jsfile = files.filter(f => f.split(".").pop() === "js");
+  if (jsfile.length <= 0) {
+    console.log("Komut dosyaları bulunamadı!");
+    return;
+  }
+  jsfile.forEach(f => {
+    let props = require(`./komutlar/${f}`);
+    console.log(`${f} loaded!`);
+    client.commands.set(props.help.name, props);
+    props.help.aliases.forEach(alias => {
+      client.aliases.set(alias, props.help.name);
+    });
+  });
+});
+fs.readdir("./events/", (err, files) => {
+  if (err) console.log(err);
+
+  let jsfile1 = files.filter(f => f.split(".").pop() === "js");
+  if (jsfile1.length <= 0) {
+    console.log("Events Dosyaları Bulunamadı!");
+    return;
+  }
+  jsfile1.forEach(f => {
+    const eventName = f.split(".")[0];
+    console.log(`Eventler Yükleniyor: ${eventName}`);
+    const event = require(`./events/${f}`);
+
+    client.on(eventName, event.bind(null, client));
   });
 });
 
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
+
+client.login(token);
