@@ -7,7 +7,7 @@ const client = new Discord.Client({
   partials: ["MESSAGE", "USER", "REACTION"]
 });
 
-let token = "NjkzODM3NjI3OTIwNjEzNDA5.XoC4pQ.1H9nxWFgQXMKNtmxy53inJrlRZU"
+let token = "TOKEN GİR"
 
 const port = 1000;
 
