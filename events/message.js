@@ -1,5 +1,5 @@
 module.exports = async (client, message) => {
-  let prefixss = "!";
+  let prefixss = "! ";
   let prefixes = [prefixss, "<@!693837627920613409>"];
   let db = require("quick.db");
   let prefix = false;
@@ -30,11 +30,7 @@ module.exports = async (client, message) => {
   }
 
   try {
-    
-
-  
-      command.run(client, message, args);
-  
+    command.run(client, message, args);
   } catch (e) {
     console.log(e.message);
   }
