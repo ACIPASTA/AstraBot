@@ -39,4 +39,3 @@ module.exports = async (client, message) => {
     console.log(e.message);
   }
 };
-// youtube.com/c/EmirhanSarac
