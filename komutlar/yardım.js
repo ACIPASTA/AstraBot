@@ -13,7 +13,6 @@ exports.run = async (client, message, args) => {
 `)
   /*
   
-  youtube.com/c/EmirhanSarac
   
   */
   .setFooter('Bu komutu kullanan kullanıcı ' + message.author.tag, message.author.displayAvatarURL())

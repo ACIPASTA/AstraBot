@@ -1,5 +1,5 @@
 module.exports = async (client, user,message)  => {
-  client.user.setActivity("gelişmiş ayarlanabilir emoji rol sistemi uWu")
+  client.user.setActivity("ACIPASTA Reaksiyon bot !yardım")
   console.log("Bot Başarıyla Başlatıldı!")
 }
 
