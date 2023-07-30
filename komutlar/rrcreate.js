@@ -7,12 +7,12 @@ module.exports.run = async (client, message, args) => {
     );
   if (!message.member.hasPermission("MANAGE_ROLES"))
     return message.reply(`Bu komutu kullanmak için "Rolleri Yönet" Yetkisine Sahip Olmalısın!`);
-  /*
+
   
-  pablo pablo https://www.youtube.com/watch?v=piIroOC4it4
-  youtube.com/c/EmirhanSarac
+
+
   
-  */
+
   let prompts = [
     "Emojiye tıklandığında hangi rolü vermek istersiniz? (Etiketle)",
     "Kullanıcıların hangi emoji ile rol almasını istersiniz? (özel emojiler çalışmıyor!)",
