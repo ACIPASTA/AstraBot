@@ -4,6 +4,6 @@
 
 /*
   
-  [Kanala Git]([https://youtube.com/c/EmirhanSarac](https://www.youtube.com/@pantheria1980)https://www.youtube.com/@pantheria1980)
+  [Kanala Git]([https://youtube.com/c/EmirhanSarac](https://www.youtube.com/@pantheria1980)https://www.youtube.com/@pantheria1980])
   
 */
