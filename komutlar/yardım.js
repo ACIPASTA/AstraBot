@@ -21,7 +21,6 @@ exports.run = async (client, message, args) => {
   
 }
     
-//EMİRHAN SARAÇ TARAFINDAN YAPILMIŞTIR 2021 DE YENİLENMİŞTİR!
 module.exports.help = {
   name: "yardım",
   description: "Yardım Komutu",
