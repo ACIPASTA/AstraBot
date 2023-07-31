@@ -26,4 +26,3 @@ module.exports = async (client, reaction1, user) => {
     }
   }
 };
-// youtube.com/c/EmirhanSarac
