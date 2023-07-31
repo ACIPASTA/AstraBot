@@ -1,9 +1,9 @@
 ## Selamun Aleyküm
 
-**Bu ALTYAPI 14 Mayıs 2021 Tarihinde Youtube Emirhan Saraç Kanalında Paylaşılmıştır!**  
+**Burdan Eren ve Tonyy gardaşıma selamlar 3131laopdx MezunPSA!**  
 
 /*
   
-  [Kanala Git](https://youtube.com/c/EmirhanSarac)
+  [Kanala Git]([https://youtube.com/c/EmirhanSarac](https://www.youtube.com/@pantheria1980)https://www.youtube.com/@pantheria1980)
   
 */
