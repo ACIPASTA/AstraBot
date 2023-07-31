@@ -50,8 +50,3 @@ module.exports.help = {
   usage: " <emoji rolü mesaj idsi>",
   aliases: ["rrremove","rrdelete"]
 };
-  /*
-  
-  youtube.com/c/EmirhanSarac
-  
-  */
