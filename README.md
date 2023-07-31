@@ -1,6 +1,6 @@
 ## Selamun Aleyküm
 
-**Burdan Eren ve Tonyy gardaşıma selamlar 3131laopdx MezunPSA!**  
+**Burdan Eren ve Tonyy gardaşıma selamlar 3162 MezunPSA!**  
 
 /*
   
