@@ -5,11 +5,7 @@ module.exports.run = async (client, message, args) => {
     .all()
     .filter(data => data.ID.startsWith(`rolereactions_${message.guild.id}`))
     .sort((a, b) => b.data - a.data);
-  /*
-  
-  youtube.com/c/EmirhanSarac
-  
-  */
+
   if (!roles.length) {
     let noEmbed = new Discord.MessageEmbed()
       .setAuthor(message.member.displayName, message.author.displayAvatarURL())
