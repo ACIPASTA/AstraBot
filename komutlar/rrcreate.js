@@ -144,4 +144,3 @@ module.exports.help = {
   usage: " ",
   aliases: ["rradd"]
 };
-// youtube.com/c/EmirhanSarac
